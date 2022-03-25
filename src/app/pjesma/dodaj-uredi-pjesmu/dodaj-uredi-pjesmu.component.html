@@ -1,0 +1,40 @@
+<form>
+    <div class="mb-3">
+        <label for="pjesmaKategorijaId" class="form-label">Kategorija pjesme</label>
+        <select class="form-control" name="pjesmaKategorijaId" id="pjesmaKategorijaId" [(ngModel)]="pjesmaKategorijaId" *ngIf="pjesma.pjesmaId!=0">
+            <option *ngFor="let kategorija of listaKategorija$|async" [value]="kategorija.id">{{kategorija.kategorijaPjesme}}</option>
+        </select>
+        <select class="form-control" name="pjesmaKategorijaId" id="pjesmaKategorijaId" [(ngModel)]="pjesmaKategorijaId" *ngIf="pjesma.pjesmaId==0">
+            <option *ngFor="let kategorija of listaKategorija$|async" [value]="kategorija.id">{{kategorija.kategorijaPjesme}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="pjesmaFavorit" class="form-label">Da li je pjesma favorit?</label>
+        <select class="form-control" name="pjesmaFavorit" id="pjesmaFavorit" [(ngModel)]="pjesmaFavorit">
+            <option [ngValue]="false">Ne</option>
+            <option [ngValue]="true">Da</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="pjesmaName" class="form-label">Ime pjesme:</label>
+        <input type="text" class="form-control" name="pjesmaName" [(ngModel)]="pjesmaName">
+    </div>
+    <div class="mb-3">
+        <label for="pjesmaIzvodjac" class="form-label">Ime izvođača:</label>
+        <input type="text" class="form-control" name="pjesmaIzvodjac" [(ngModel)]="pjesmaIzvodjac">
+    </div>
+    <div class="mb-3">
+        <label for="pjesmaUrl" class="form-label">URL pjesme:</label>
+        <input type="url" class="form-control" name="pjesmaUrl" [(ngModel)]="pjesmaUrl">
+    </div>
+    <div class="mb-3">
+        <label for="pjesmaOcjena" class="form-label">Ocjena pjesme (1-5):</label>
+        <input type="number" min="1" max="5" class="form-control" name="pjesmaOcjena" [(ngModel)]="pjesmaOcjena">
+    </div>
+    <button class="btn btn-primary" (click)="dodajPjesmu()" *ngIf="pjesma.pjesmaId==0">
+        Dodaj
+    </button>
+    <button class="btn btn-primary" (click)="updatePjesmu()" *ngIf="pjesma.pjesmaId!=0">
+        Ažuriraj
+    </button>
+</form>

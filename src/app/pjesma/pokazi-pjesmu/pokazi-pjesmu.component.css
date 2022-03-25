@@ -1,0 +1,45 @@
+.table th {
+    text-align: center !important;
+      
+ }
+
+ .table td {
+    text-align: center !important;
+       
+ }
+
+ .naslov{
+   font-family: Montserrat;
+   font-weight: 500;
+ }
+
+ .naslov:hover{
+    font-weight: 800;
+ }
+
+ #dodaj-kategoriju-alert,
+ #dodaj-uspjesno-alert,
+ #azuriraj-uspjesno-alert,
+ #brisanje-uspjesno-alert{
+    display: none;
+ }
+
+ #dodaj-kategoriju-alert,
+ #dodaj-uspjesno-alert,
+ #azuriraj-uspjesno-alert,
+ #brisanje-uspjesno-alert{
+    animation-name: prikaz;
+    animation-duration: 5s;
+ }
+
+ @keyframes prikaz{
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+
+ @-webkit-keyframes prikaz{
+   0% {opacity: 0;}
+   50% {opacity: 1;}
+   100% {opacity: 0;}
+}
